@@ -1,0 +1,53 @@
+//messages and user list paddings
+.messages,.users{
+    padding:10px;
+    li{
+        padding:20px;
+    }
+}
+
+//users UL styling
+.users{
+    li{
+        border-bottom: 2px solid $blue-default;
+        font-weight: bolder;
+        font-size:1.1em;
+
+        &:last-child{
+            //last li no border
+            border-bottom: none;
+        }
+    }
+}
+//messages styling
+.messages{
+    li{
+
+        //border styling
+        border-radius:20px;
+        border:2px solid $gray-light;
+
+        //margin bottom between messages
+        margin-bottom:20px;
+
+        //user name display
+        .user-name{
+            //block so can be aligned right or left
+            display:block;
+
+            //extra space from border
+            padding-left:20px;
+            padding-right:20px;
+
+            //font size
+            font-size:1.4em;
+
+        }
+        //different align every second item
+        &:nth-child(2n){
+            .user-name{
+                text-align: right;
+            }
+        }
+    }
+}

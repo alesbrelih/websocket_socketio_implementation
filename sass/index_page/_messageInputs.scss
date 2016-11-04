@@ -1,0 +1,20 @@
+//input message styling
+.input-message{
+    //content positioning
+    display:flex;
+    align-items:center;
+    padding:10px 10px 10px 50px;
+
+    //field widht
+    .input-field{
+        width:80%;
+    }
+
+    //button width and centering
+    //vertical center comes from display flex align items center
+    .input-button{
+        text-align: center;
+        width:20%;
+    }
+    
+}

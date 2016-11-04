@@ -1,0 +1,13 @@
+body{
+    //bg-color and sizing
+    background:$gray-light;
+    display:flex;
+
+    //vertical align center
+    align-items:center;
+
+    //min width of body so wrapper can be centered using flexbox
+    min-width:100vw;
+    min-height: 100vh;
+
+}

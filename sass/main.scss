@@ -1,18 +1,53 @@
-body{
-    background-color:black;
-    color:white;
+@import "base/_variables.scss";
+
+//custom test styles
+
+
+////////////////////////////////
+// ---- import body styles -----
+////////////////////////////////
+@import "base/_body.scss";
+
+
+.chat-wrapper{
+    //width
+    width:80%;
+
+    //border radius
+    border-radius:20px;
+
+    //bg color
+    background-color:white;
+    //borders hack
+    box-shadow: 0px 0px 0px 2px $blue-default, 
+                0px 0px 0px 4px lighten($blue-default,50%),
+                0px 0px 0px 6px darken($gray-light,5%);
+
+    //centered horizontally and some margins vertically
+    margin:20px auto;
+    padding:20px;
+
+    //display flex
     display:flex;
-    h1{
-        font-size:32px;
-    }
-    .big-picture{
-        @extend h1;
-        color:red;
-        &.with-italic{
-            font-style: italic;
-            font-weight: bold;
-            color:green;
-            font-size:10px;
-        }
-    }
+    flex-direction: column;
+
+    
+    ///////////////////////////////////////
+    // ------ import header styling -------
+    ////////////////////////////////////////
+    @import "index_page/_header.scss";
+
+
+    ///////////////////////////////////////////////////////
+    // ------- import messages and users display styling --
+    //////////////////////////////////////////////////////
+    @import "index_page/_messagesAndUsers.scss";
+
+
+    ///////////////////////////////////////////////////////
+    // ----- import inputs for messages styling ---------
+    //////////////////////////////////////////////////////
+    @import "index_page/_messageInputs.scss";
+
+    
 }

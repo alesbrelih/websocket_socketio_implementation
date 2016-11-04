@@ -33,39 +33,49 @@ const sassFiles = "sass/**/*.scss";
 //minifies all external scripts and concats them inside "external.all.min.js" file
 gulp.task("external-scripts",()=>{
     return gulp.src(scriptExternal)
-    .pipe(plumber())
+    .pipe(plumber({
+        errorHandler:(err)=>{
+            console.log(err);
+            this.emit("end");
+        }
+    }))
     .pipe(concat("external.all.min.js"))
-    .pipe(uglify())
-    .pipe(plumber.stop())
     .pipe(gulp.dest("public/scripts/external"));
 });
 
 // babels (es6 to es5), minifies all application script files and concats them inside "app.all.min.js"file
 gulp.task("application-scripts",()=>{
     return gulp.src(scriptApplication)
-    .pipe(plumber())
+    .pipe(plumber({
+        errorHandler:(err)=>{
+            console.log(err);
+            this.emit("end");
+        }
+    }))
     .pipe(babel(
         {
             presets: ["es2015"]
         }
     ))
     .pipe(concat("app.all.min.js"))
-    .pipe(uglify().on("error",function(e){
-        console.log(e);
-    }))
-    .pipe(plumber.stop())
+    .pipe(uglify())
     .pipe(gulp.dest("public/scripts/client/"));
 });
 
 // compile sass to css
 gulp.task("sass",()=>{
     return gulp.src(sassFiles)
-    .pipe(plumber())
+    .pipe(plumber({
+        errorHandler:function(err){
+            console.log(err);
+            this.emit("end");  //for gulp watch to continue after
+        }
+    })
+    )
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(concat("app.styles.css"))
     .pipe(cleanCSS())
-    .pipe(plumber.stop())
     .pipe(gulp.dest("public/css/"));
 });
 

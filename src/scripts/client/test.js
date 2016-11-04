@@ -1,6 +1,5 @@
-const b = 12;
+(function(window){
 
-const waw = `aha ${b}`;
+    console.log(window);
 
-console.log(b+waw+"wawks");
-console.log("scakobao");
+})(window);
