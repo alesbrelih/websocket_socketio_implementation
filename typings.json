@@ -1,0 +1,9 @@
+{
+  "name": "websocket_socketio_test",
+  "dependencies": {
+    "express": "registry:npm/express#4.14.0+20160925001530"
+  },
+  "globalDependencies": {
+    "socket.io": "registry:dt/socket.io#1.4.4+20160909205835"
+  }
+}

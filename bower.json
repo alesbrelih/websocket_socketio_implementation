@@ -1,0 +1,17 @@
+{
+  "name": "websocket_socketio_test",
+  "description": "Testing usage of socketIo for websocket implementation to web pages",
+  "main": "server.js",
+  "authors": [
+    "Aleš Brelih"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "socket.io",
+    "websocket"
+  ],
+  "homepage": "{",
+  "dependencies": {
+    "materialize": "^0.97.8"
+  }
+}
