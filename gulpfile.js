@@ -35,7 +35,7 @@ gulp.task("external-scripts",()=>{
     return gulp.src(scriptExternal)
     .pipe(plumber({
         errorHandler:(err)=>{
-            console.log(err);
+            window.console.log(err);
             this.emit("end");
         }
     }))
@@ -48,7 +48,7 @@ gulp.task("application-scripts",()=>{
     return gulp.src(scriptApplication)
     .pipe(plumber({
         errorHandler:(err)=>{
-            console.log(err);
+            window.console.log(err);
             this.emit("end");
         }
     }))
@@ -67,7 +67,7 @@ gulp.task("sass",()=>{
     return gulp.src(sassFiles)
     .pipe(plumber({
         errorHandler:function(err){
-            console.log(err);
+            window.console.log(err);
             this.emit("end");  //for gulp watch to continue after
         }
     })

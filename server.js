@@ -2,7 +2,6 @@
 // ------------ SOCKET IO TEST EXPRESS SERVER -------------
 ///////////////////////////////////////////////////////////
 
-
 ///////////////////////////////////
 // ---- import NPM modules ------ 
 /////////////////////////////////
@@ -28,5 +27,5 @@ app.get("/",function(req,res){
 
 //start express erver on port
 app.listen(8001,function(){
-	console.log("Server running at 8001");
+	window.console.log("Server running at 8001");
 });
