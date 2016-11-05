@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////
 // ------------ SOCKET IO TEST EXPRESS SERVER -------------
 ///////////////////////////////////////////////////////////
@@ -10,8 +11,10 @@ const app  = express();
 const http = require("http").Server(app);
 const socketIo = require("socket.io");
 const io = socketIo(http);
+const io_config = require("./config/socket.io.config");
 const ejs = require("ejs");
 const path = require("path");
+
 
 
 //set views folder and view engine
@@ -26,12 +29,9 @@ app.get("/",function(req,res){
     res.render("index.html");
 });
 
-//catch io connection - TEST
-io.on("connection",function(socket){  
-    socket.on("chat-room-message",(msg)=>{
-        io.emit("chat-room-message",msg);
-    });
-});
+//configure socket io 
+io_config(io);
+
 
 //start express erver on port
 http.listen(8001,function(){

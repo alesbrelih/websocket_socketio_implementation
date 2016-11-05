@@ -1,6 +1,11 @@
+//materialize row doesnt take full width by default
+.row{
+    width:100%;
+}
 //messages and user list paddings
 .messages,.users{
     padding:10px;
+    width:100%;
     li{
         padding:20px;
     }
@@ -8,15 +13,45 @@
 
 //users UL styling
 .users{
+    border:2px solid $gray-light;
+    border-radius:10px;
     li{
-        border-bottom: 2px solid $blue-default;
+        /*border-bottom: 2px solid $blue-default;*/
+        border-radius: inherit;
         font-weight: bolder;
         font-size:1.1em;
+        position: relative;
 
-        &:last-child{
+        &:hover{
+            background-color:rgba(#eee,0.4);
+            cursor: pointer;
+        }
+        &:not(:last-child){
+            &:after{
+                content:"";
+                position: absolute;
+                width:60%;
+                height: 100%;
+                top:0;
+                left:20%;
+                border-bottom: 2px solid $blue-default;
+                background-color:transparent;
+            }
+        }
+        
+        /*&:not(:last-child){
             //last li no border
             border-bottom: none;
-        }
+            &:after{
+                content:"";
+                display:block;
+                width:90%;
+                height: 2px;
+                background-color:$blue-default;
+                margin-left:auto;
+                margin-right:auto;
+            }
+        }*/
     }
 }
 //messages styling
