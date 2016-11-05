@@ -46,8 +46,10 @@ gulp.task("external-scripts",()=>{
 // babels (es6 to es5), minifies all application script files and concats them inside "app.all.min.js"file
 gulp.task("application-scripts",()=>{
     return gulp.src(scriptApplication)
-    .pipe(plumber(()=>{
-            this.emit("end");}))
+    .pipe(plumber(function(err){
+        console.log(err); //so we can see error in terminal
+        this.emit("end");
+    }))
     .pipe(babel(
         {
             presets: ["es2015"]
@@ -61,8 +63,9 @@ gulp.task("application-scripts",()=>{
 // compile sass to css
 gulp.task("sass",()=>{
     return gulp.src(sassFiles)
-    .pipe(plumber(()=>{
-            this.emit("end");  //for gulp watch to continue after
+    .pipe(plumber(function(err){
+            console.log(err);
+            this.emit("end");  //for gulp watch to continue after <- need to use function because arrow will inherit this as task?
         })
     )
     .pipe(sass())
