@@ -12,6 +12,7 @@
   ],
   "homepage": "{",
   "dependencies": {
-    "materialize": "^0.97.8"
+    "materialize": "^0.97.8",
+    "socket.io": "^1.5.1"
   }
 }

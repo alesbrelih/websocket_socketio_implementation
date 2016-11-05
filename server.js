@@ -6,12 +6,13 @@
 // ---- import NPM modules ------ 
 /////////////////////////////////
 const express = require("express");
+const app  = express();
+const http = require("http").Server(app);
 const socketIo = require("socket.io");
+const io = socketIo(http);
 const ejs = require("ejs");
 const path = require("path");
 
-//initialize application
-const app  = express();
 
 //set views folder and view engine
 app.set("views",path.join(__dirname,"views"));
@@ -25,7 +26,14 @@ app.get("/",function(req,res){
     res.render("index.html");
 });
 
+//catch io connection - TEST
+io.on("connection",function(socket){  
+    socket.on("chat-room-message",(msg)=>{
+        io.emit("chat-room-message",msg);
+    });
+});
+
 //start express erver on port
-app.listen(8001,function(){
-	window.console.log("Server running at 8001");
+http.listen(8001,function(){
+	console.log("Server running at 8001");
 });

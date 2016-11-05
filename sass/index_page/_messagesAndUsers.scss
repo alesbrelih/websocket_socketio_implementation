@@ -45,9 +45,10 @@
         }
         //different align every second item
         &:nth-child(2n){
-            .user-name{
+            text-align: right;
+            /*.user-name{
                 text-align: right;
-            }
+            }*/
         }
     }
 }

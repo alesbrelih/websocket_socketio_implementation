@@ -46,12 +46,8 @@ gulp.task("external-scripts",()=>{
 // babels (es6 to es5), minifies all application script files and concats them inside "app.all.min.js"file
 gulp.task("application-scripts",()=>{
     return gulp.src(scriptApplication)
-    .pipe(plumber({
-        errorHandler:(err)=>{
-            window.console.log(err);
-            this.emit("end");
-        }
-    }))
+    .pipe(plumber(()=>{
+            this.emit("end");}))
     .pipe(babel(
         {
             presets: ["es2015"]
@@ -65,12 +61,9 @@ gulp.task("application-scripts",()=>{
 // compile sass to css
 gulp.task("sass",()=>{
     return gulp.src(sassFiles)
-    .pipe(plumber({
-        errorHandler:function(err){
-            window.console.log(err);
+    .pipe(plumber(()=>{
             this.emit("end");  //for gulp watch to continue after
-        }
-    })
+        })
     )
     .pipe(sass())
     .pipe(autoprefixer())
