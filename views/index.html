@@ -26,7 +26,7 @@
                     <ul id="message-wrapper" class="messages">
 
                         <!--MESSAGES COME HERE DYNAMICALLY-->
-                        
+
                         <!--<li class="message"><span class="user-name">Aleš</span><p>s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></li>
                         <li class="message"><span class="user-name">Marjan</span><p>s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></li>
                         <li class="message"><span class="user-name">Aleš</span><p>s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></li>-->
@@ -42,7 +42,7 @@
                     <label for="chat-message">Enter your message...</label>
                 </div>
                 <div class="input-button">
-                     <a class="btn-floating btn-large waves-effect waves-light" id="chat-message-send"><i class="material-icons">message</i></a>
+                     <a class="btn-large" id="chat-message-send"><i class="material-icons">message</i></a>
                 </div> 
             </div>
             <div class="input-username">
@@ -51,9 +51,46 @@
                     <label for="username">Username</label>
                 </div>
                 <div class="input-button">
-                     <a class="btn-floating btn-large waves-effect waves-light" id="set-username"><i class="material-icons">mode_edit</i></a>
+                     <a class="btn-large" id="set-username"><i class="material-icons">mode_edit</i></a>
                 </div> 
             </div>
+        </div>
+
+        <div class="private-chat-wrapper">
+            <ul class="private-chat-list">
+                <li data-socket-id="id" class="private-chat"> 
+                    <span class="user-name">
+                        Marjan
+                    </span> 
+                    <div class="user-text">
+                        <ul class="private-messages-wrapper">
+                            <li class="private-message"> <div class="username">Aleš</div>Ye yoydasodoasd. Retardorino. LALALALLA </li>
+                            <li class="private-message"> <div class="username">Marjan</div>Ye yoydasodoasd. Retardorino. LALALALLA </li>
+                            <li class="private-message"> <div class="username">Aleš</div>Ye yoydasodoasd. Retardorino. LALALALLA </li>
+                            <li class="private-message"> <div class="username">Marjan</div>Ye yoydasodoasd. Retardorino. LALALALLA </li>
+                        </ul>
+                        <div class="input-field">
+                            <input class="message private-chat-send" type="text" placeholder="Your message..">
+                        </div>
+                    </div> 
+                </li>
+                <li class="private-chat"> 
+                    <span class="user-name">
+                        Aleš
+                    </span> 
+                    <div class="user-text">
+                        <ul class="private-messages-wrapper">
+                            <li class="private-message"></li>
+                            <li class="private-message"></li>
+                            <li class="private-message"></li>
+                            <li class="private-message"></li>
+                        </ul>
+                        <div class="input-field">
+                            <input class="message private-chat-send" type="text" placeholder="Your message..">
+                        </div>
+                    </div> 
+                </li>
+            </ul>
         </div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>

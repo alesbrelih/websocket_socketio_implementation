@@ -26,15 +26,25 @@
             background-color:rgba(#eee,0.4);
             cursor: pointer;
         }
+        //show bottom border hack for every1 except last child
         &:not(:last-child){
             &:after{
+                //display absolute div over content and show only bottom border
                 content:"";
                 position: absolute;
+
+                //size
                 width:60%;
                 height: 100%;
+
+                //location
                 top:0;
                 left:20%;
+                
+                //border
                 border-bottom: 2px solid $blue-default;
+
+                //no bg color
                 background-color:transparent;
             }
         }

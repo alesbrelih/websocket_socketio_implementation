@@ -1,0 +1,150 @@
+/////////////////////////////////////////////////////
+// ---------- styles for private chat --------------
+////////////////////////////////////////////////////
+
+//div wrapper styles
+.private-chat-wrapper{
+    position:fixed;
+    bottom:0;
+    right:0;
+    width:100vw;
+    background-color:inherit;
+    /*border-top:2px solid $blue-default;*/
+
+    //ul styles
+    .private-chat-list{
+
+        list-style-type: none;
+        display:flex;
+        justify-content: flex-end; //work
+        flex-wrap: wrap;
+        margin:0px;
+
+        //li styles now
+        .private-chat{
+            position: relative;
+            width:20%;
+            padding:15px;
+            text-align: center;
+            background-color:white;
+            border-left:2px solid $blue-default;
+            border-right:2px solid $blue-default;
+            border-top:2px solid $blue-default;
+            font-size:1.1em;
+            font-weight: bolder;
+            
+            &:hover{
+
+                cursor:pointer;
+                background-color:rgba($blue-default,0.5);
+
+            }
+
+            &.active{
+
+                background-color:darken($blue-default,10%);
+
+                /*border-right-color: white;
+                border-left-color:white;*/
+                color:white;
+
+                border: 2px solid white;
+
+                .user-text{
+                    display:flex;
+
+                }
+            }
+
+            //text container
+            .user-text{
+                
+                display:none;
+                flex-direction: column;
+                align-items: center;
+
+                cursor:default;
+                position:absolute;
+                width:380px;
+                height: 450px;
+                bottom:105%;
+
+                right:0px;
+                z-index:2000;
+
+                perspective:1000px;
+
+                background-color:white;
+
+                border:2px solid $blue-default;
+
+                box-shadow: 0px 0px 0px 1px #eee; //extra white border
+
+                &.active{
+                    z-index:1000;
+                    display:flex;
+
+                }
+
+                .private-messages-wrapper{
+                    flex-grow: 1;
+                    overflow: auto;
+                    width:100%;
+
+                    .private-message{
+                        font-weight:normal;
+                        font-size:0.9em;
+                        margin:10px;
+                        padding:10px;
+                        color:black;
+
+                        border:2px solid $gray-light;
+                        border-radius:10px;
+
+                        .username{
+                            padding-left:20px;
+                            padding-right:20px;
+
+                            text-align: left;
+                            color:$blue-default;
+                            font-size:1.1em;
+                            
+
+                            }
+                        &:nth-child(2n){
+                            .username{
+                               
+                                text-align: right;
+                            
+                            }
+                        }
+                    }
+                    
+                }
+                .input-field{
+                    width:100%;
+                    
+                    padding:10px;
+                    color:black;
+                    font-weight: normal;
+                    font-size:0.9em;
+
+
+                    input{
+                        margin:0px;
+                        padding-left:10px;
+                        padding-right:10px;
+                        box-sizing: border-box;
+
+                    }
+                }
+
+            }
+
+            
+        }
+
+    }
+
+
+}
