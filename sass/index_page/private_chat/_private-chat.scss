@@ -55,6 +55,15 @@
 
                 }
             }
+            &.new-message{
+                background-color:darken($blue-default,10%);
+
+                /*border-right-color: white;
+                border-left-color:white;*/
+                color:white;
+
+                border: 2px solid white;
+            }
 
             //text container
             .user-text{

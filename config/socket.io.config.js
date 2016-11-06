@@ -30,6 +30,13 @@ function ConfigureSocketIo(io)
         //give connected user all usernames
         socket.emit("users-list",connected_users);
 
+        //private chat for users
+        //HINT: socket data could be searched for here aswell
+        //instead of sending it through client
+        socket.on("private-message",(data)=>{
+            io.to(data.to).emit("private-message",{from:data.from,msg:data.msg});
+        });
+
         //user connects to chat with username
         socket.on("user-joined",(username)=>{
 
