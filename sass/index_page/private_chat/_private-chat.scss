@@ -4,35 +4,55 @@
 
 //div wrapper styles
 .private-chat-wrapper{
-    position:fixed;
+    //position display of whole wrapper
+    position:fixed; //always visible when content
+    
+    //starts bottom right
     bottom:0;
     right:0;
+
+    //takes full width
     width:100vw;
-    background-color:inherit;
-    /*border-top:2px solid $blue-default;*/
+
+    background-color:inherit; //same color as bg so only LI are visible
 
     //ul styles
     .private-chat-list{
 
+        //remove LI markup
         list-style-type: none;
+
+        //display flex for easier content management
         display:flex;
         justify-content: flex-end; //work
         flex-wrap: wrap;
+
+        //no margin
         margin:0px;
 
-        //li styles now
+        //li styles now (every private chat box)
         .private-chat{
+            //relative so private chat text can be positioned absolute inside it
             position: relative;
+
+            //width
             width:20%;
+            
+            //padding
             padding:15px;
-            text-align: center;
+            
+            //border and bg
             background-color:white;
             border-left:2px solid $blue-default;
             border-right:2px solid $blue-default;
             border-top:2px solid $blue-default;
+
+            //text styles
+            text-align: center;
             font-size:1.1em;
             font-weight: bolder;
             
+            //on hover styles
             &:hover{
 
                 cursor:pointer;
@@ -40,114 +60,130 @@
 
             }
 
+            //active styles, when user opens private chat
             &.active{
 
                 background-color:darken($blue-default,10%);
 
-                /*border-right-color: white;
-                border-left-color:white;*/
                 color:white;
 
                 border: 2px solid white;
 
+                //show private chat TEXT (its display:none before active)
                 .user-text{
                     display:flex;
 
                 }
             }
+            //notification about new message
+            //same as active but doesnt show text
+            
             &.new-message{
                 background-color:darken($blue-default,10%);
-
-                /*border-right-color: white;
-                border-left-color:white;*/
                 color:white;
-
                 border: 2px solid white;
             }
 
             //text container
             .user-text{
                 
-                display:none;
+                display:none; //default hidden
+
+                //flex positioning and direction
+                position:absolute;
                 flex-direction: column;
                 align-items: center;
 
+                //change cursor back to default
                 cursor:default;
-                position:absolute;
+                
+                //size and location
                 width:380px;
                 height: 450px;
                 bottom:105%;
-
                 right:0px;
                 z-index:2000;
 
-                perspective:1000px;
-
+                //color and bg
                 background-color:white;
-
                 border:2px solid $blue-default;
-
+                //extra border for better showing when over blue bg
                 box-shadow: 0px 0px 0px 1px #eee; //extra white border
 
-                &.active{
-                    z-index:1000;
-                    display:flex;
-
-                }
-
+                //messages sent/got wrapper
                 .private-messages-wrapper{
+                    //takes majority of display
                     flex-grow: 1;
-                    overflow: auto;
+
+                    overflow: auto; //show scroll when needed
+
+                    //full width
                     width:100%;
 
+
+                    //every single message styles
                     .private-message{
+                        //font styles
                         font-weight:normal;
                         font-size:0.9em;
-                        margin:10px;
-                        padding:10px;
                         color:black;
 
+                        //padding-margin
+                        margin:10px;
+                        padding:10px;
+                        
+                        //border
                         border:2px solid $gray-light;
                         border-radius:10px;
 
+                        //username style inside message
                         .username{
+                            //extra padding
                             padding-left:20px;
                             padding-right:20px;
 
+                            //align left so it can be swapped on every second message to right
                             text-align: left;
+
+                            //font styles
                             color:$blue-default;
                             font-size:1.1em;
                             
 
-                            }
+                        }
+                        //swap align
                         &:nth-child(2n){
                             .username{
-                               
                                 text-align: right;
-                            
                             }
                         }
                     }
                     
                 }
+
+                //private message input container styles
                 .input-field{
+
+                    //position and sizing
                     width:100%;
-                    
                     padding:10px;
+
+                    //font styles
                     color:black;
                     font-weight: normal;
                     font-size:0.9em;
 
-
+                    //input field
                     input{
+                        //padding margin
                         margin:0px;
                         padding-left:10px;
                         padding-right:10px;
-                        box-sizing: border-box;
 
+                        //materialize has different box-sizing as default
+                        box-sizing: border-box;
                     }
                 }
-
             }
 
             
